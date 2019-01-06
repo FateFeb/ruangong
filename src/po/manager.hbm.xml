@@ -1,0 +1,18 @@
+<?xml version="1.0"?> 
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/HibernateMappingDTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="po.manager" table="manager"
+		catalog="ylm">
+		<id name="id" type="string">
+			<column name="id" length="10"/>
+			<generator class="native" />
+		</id>
+		<property name="pwd" type="string">
+			<column name="pwd" length="20"  />
+		</property>
+		<property name="name" type="string">
+			<column name="name" length="10" />
+		</property>
+	</class>
+</hibernate-mapping> 

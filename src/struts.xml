@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN" "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="strutsBean" extends="struts-default" namespace="/">
+    <action name="login" class="action.test" method="login">
+			<result name="success">/index.jsp</result>
+			<result name="fail">loginFail.jsp</result>
+			<result name="input">/managerlogin.jsp</result> 
+		</action>
+		  <action name="riderreg" class="action.test" method="riderreg">
+			<result name="success">/audit.jsp</result>
+			<result name="fail">loginFail.jsp</result>
+		</action>
+		
+		  <action name="busreg" class="action.test" method="busreg">
+			<result name="success">/loginSuccess.jsp</result>
+			<result name="fail">loginFail.jsp</result>
+		</action>
+		<action name="allItems" class="action.test" method="getAllItems">
+		<result name="fail">/loginFail.jsp</result>
+			<result name="success">/cheakbusiness.jsp</result>
+			
+		</action>
+		<action name="pass" class="action.test" method="pass">
+			<result name="success">/check_select.jsp</result>
+			<result name="fail">/loginFail.jsp</result>
+		</action>
+		<action name="getAllItems" class="action.test" method="getAllItems">
+			<result name="success">/audit.jsp</result>
+			<result name="fail">/loginFail.jsp</result>
+		</action>
+		<action name="unpass" class="action.test" method="unpass">
+			<result name="success">/loginFail.jsp</result>
+			
+		</action>
+		<action name="businessfind" class="action.find" method="businessfind">
+			<result name="success">/bfindSuccess.jsp</result>
+			<result name="fail">/loginFail.jsp</result>
+			
+		</action>
+		<action name="orderfind" class="action.find" method="orderfind">
+			<result name="success">/ofindSuccess.jsp</result>
+			<result name="fail">loginFail.jsp</result>
+		</action>
+		<action name="riderfind" class="action.find" method="riderfind">
+			<result name="success">/rfindSuccess.jsp</result>
+			<result name="fail">/loginFail.jsp</result>
+			
+		</action>
+	</package>
+</struts>

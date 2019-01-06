@@ -1,0 +1,38 @@
+<?xml version="1.0"?> 
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/HibernateMappingDTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="po.order" table="order" catalog="ylm">
+		<id name="id" type="string">
+			<column name="id" length="10" />
+			<generator class="native" />
+		</id>
+		<property name="bid" type="string">
+			<column name="bid" length="10" />
+		</property>
+		<property name="rid" type="string">
+			<column name="rid" length="10" />
+		</property>
+		<property name="goods" type="string">
+			<column name="goods" length="100" />
+		</property>
+		<property name="end" type="string">
+			<column name="end" length="100" />
+		</property>
+		<property name="price" type="double">
+			<column name="price" />
+		</property>
+		<property name="starttime" type="timestamp">
+			<column name="starttime" length="23" />
+		</property>
+		<property name="gettime" type="timestamp">
+			<column name="gettime" length="23" />
+		</property>
+		<property name="endtime" type="timestamp">
+			<column name="endtime" length="23" />
+		</property>
+		<property name="state" type="int">
+			<column name="state" />
+		</property>
+	</class>
+</hibernate-mapping> 
