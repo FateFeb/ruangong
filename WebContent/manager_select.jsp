@@ -74,7 +74,7 @@
               </a>
             </div>
             <div class="mdc-list-item mdc-drawer-item">
-              <a class="mdc-drawer-link" href="pages/forms/basic-forms.html">
+              <a class="mdc-drawer-link" href="orderfind">
                 <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">track_changes</i>
                 订单查询
               </a>
@@ -107,9 +107,9 @@
               </a>
             </div>
             <div class="mdc-list-item mdc-drawer-item">
-              <a class="mdc-drawer-link" href="pages/charts/chartjs.html">
+              <a class="mdc-drawer-link" href="#">
                 <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">pie_chart_outlined</i>
-                数据报表
+                用户处理
               </a>
             </div>
             <div class="mdc-list-item mdc-drawer-item" href="#" data-toggle="expansionPanel" target-panel="sample-page-submenu">
@@ -250,10 +250,11 @@
                          <s:submit  value="审核商家" class="btn btn-lg orange padd"/>      
                     </div>
                     </form>
-                   
+                    <form action="checkrider" method="post">
                     <div class="col-sm-3 wid">
-                        <a href="audit.jsp" class="btn btn-lg orange padd">审核骑手</a>
+                        <s:submit  value="审核骑手" class="btn btn-lg orange padd"/>
                     </div>
+                    </form>
                </div>
            </div>
         </div>

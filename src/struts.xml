@@ -18,17 +18,17 @@
 			<result name="fail">loginFail.jsp</result>
 		</action>
 		<action name="allItems" class="action.test" method="getAllItems">
-		<result name="fail">/loginFail.jsp</result>
+		<result name="fail">/nouserfind.jsp</result>
 			<result name="success">/cheakbusiness.jsp</result>
 			
 		</action>
 		<action name="pass" class="action.test" method="pass">
 			<result name="success">/check_select.jsp</result>
-			<result name="fail">/loginFail.jsp</result>
+			<result name="fail">/nouserfind.jsp</result>
 		</action>
 		<action name="getAllItems" class="action.test" method="getAllItems">
-			<result name="success">/audit.jsp</result>
-			<result name="fail">/loginFail.jsp</result>
+			<result name="success">/businessaudit.jsp</result>
+			<result name="fail">/nouserfind.jsp</result>
 		</action>
 		<action name="unpass" class="action.test" method="unpass">
 			<result name="success">/loginFail.jsp</result>
@@ -36,7 +36,7 @@
 		</action>
 		<action name="businessfind" class="action.find" method="businessfind">
 			<result name="success">/bfindSuccess.jsp</result>
-			<result name="fail">/loginFail.jsp</result>
+			<result name="fail">/nouserfind.jsp</result>
 			
 		</action>
 		<action name="orderfind" class="action.find" method="orderfind">
@@ -47,6 +47,13 @@
 			<result name="success">/rfindSuccess.jsp</result>
 			<result name="fail">/loginFail.jsp</result>
 			
+		</action>
+		<action name="checkrider" class="action.test" method="checkrider">
+		    <result name="success">/audit.jsp</result>
+			<result name="fail">/nouserfind.jsp</result>
+		</action>
+		<action name="riderpass" class="action.test" method="riderpass">
+		    <result name="success">/check.jsp</result>
 		</action>
 	</package>
 </struts>

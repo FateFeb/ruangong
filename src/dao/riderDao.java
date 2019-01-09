@@ -14,6 +14,7 @@ import po.rider;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -29,7 +30,7 @@ public class riderDao {
 	    String password = "123456";
 	    Connection conn = null;
 	    try {
-	        Class.forName(driver); //classLoader,¼ÓÔØ¶ÔÓ¦Çý¶¯
+	        Class.forName(driver); //classLoader,ï¿½ï¿½ï¿½Ø¶ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½
 	        conn = (Connection) DriverManager.getConnection(url, username, password);
 	    } catch (ClassNotFoundException e) {
 	        e.printStackTrace();
@@ -147,6 +148,68 @@ public class riderDao {
 		        e.printStackTrace();
 		    }
 		    return null;
+	}
+	public ArrayList<rider> findALLRider()
+	{   
+		
+		ArrayList<rider> b=new ArrayList<rider>();
+		String sql="SELECT * FROM rider where state=2";
+		try(Connection conn=getConn();
+				PreparedStatement pstmt=(PreparedStatement)conn.prepareStatement(sql);
+				ResultSet rst=pstmt.executeQuery())
+		{   
+			
+			while(rst.next()) {
+				rider s=new rider();
+				s.setId(rst.getString("id"));
+				s.setName(rst.getString("name"));
+				s.setPhone(rst.getString("phone"));
+				s.setMoney(rst.getDouble("money"));
+				s.setState(rst.getInt("state"));
+				b.add(s);
+			}
+			return b;
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+	public void pass(String id)
+	{
+		   Connection conn = getConn();
+		    int i = 0;
+		    int t=1;
+		    String sql = "update rider set state='" +t+ "' where id='" + id + "'";
+		    PreparedStatement pstmt;
+		    try {
+		        pstmt = (PreparedStatement) conn.prepareStatement(sql);
+		        i = pstmt.executeUpdate();
+		        System.out.println("resutl: " + i);
+		        pstmt.close();
+		        conn.close();
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+	}
+	public void unpass(String id)
+	{
+		   Connection conn = getConn();
+		    int i = 0;
+		    int t=3;
+		    String sql = "update rider set state='" +t+ "' where id='" + id + "'";
+		    PreparedStatement pstmt;
+		    try {
+		        pstmt = (PreparedStatement) conn.prepareStatement(sql);
+		        i = pstmt.executeUpdate();
+		        System.out.println("resutl: " + i);
+		        pstmt.close();
+		        conn.close();
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
 	}
 	
 }

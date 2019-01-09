@@ -1,5 +1,7 @@
 package service;
 
+import java.util.ArrayList;
+
 import dao.businessDao;
 import dao.riderDao;
 import po.business;
@@ -27,5 +29,20 @@ public class riderService {
 		riderDao b=new riderDao();
 		rider t=b.findByPhone(phone);
 		return t;
+	}
+	public ArrayList<rider> all()
+	{
+		riderDao b=new riderDao();
+		return b.findALLRider();
+	}
+	public void pass(String id)
+	{
+		riderDao r=new riderDao();
+		r.pass(id);
+	}
+	public void unpass(String id)
+	{
+		riderDao r=new riderDao();
+		r.unpass(id);
 	}
 }

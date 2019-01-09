@@ -44,22 +44,23 @@
 		</div>
 	   <form action="getAllItems" method="post">
        <div class="font-size">
-	       <span>用户名：</span><s:property value="registerUser.id"/><br>
-	       <span>商家名：</span><s:property value="registerUser.name"/><br>
-	       <span>手机号：</span><s:property value="registerUser.phone"/><br>
+	       <span>用户名：</span><s:property value="cBusiness.id"/><br>
+	       <span>商家名：</span><s:property value="cBusiness.name"/><br>
+	       <span>手机号：</span><s:property value="cBusiness.phone"/><br>
+	       <span> 地址：</span><s:property value="cBusiness.address"/><br>
        </div>
 
        </form>
 			<div class="container">	
 				<div class="smart-body">
 					<div class="row">
-					 <form action="riderpass" method="post">
+					 <form action="pass" method="post">
 						<div class="col-xs-2">
 						  <input type="submit" class="sss btn btn-block btn-lg btn-success btn-icon" value = "通过">
 						</div>
 					 </form>
 						
-                     <form action="riderunpass" method="post">
+                     <form action="unpass" method="post">
 						<div class="col-xs-2">
 						  <input type="submit" class="sss btn btn-block btn-lg btn-danger btn-icon" value = "不通过">
 						</div>

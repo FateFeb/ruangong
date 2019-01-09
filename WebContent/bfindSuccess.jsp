@@ -104,9 +104,9 @@
               </a>
             </div>
             <div class="mdc-list-item mdc-drawer-item">
-              <a class="mdc-drawer-link" href="pages/charts/chartjs.html">
+              <a class="mdc-drawer-link" href="#">
                 <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">pie_chart_outlined</i>
-                数据报表
+                用户处理
               </a>
             </div>
             <div class="mdc-list-item mdc-drawer-item" href="#" data-toggle="expansionPanel" target-panel="sample-page-submenu">
@@ -235,7 +235,6 @@
 		地址：<s:property value="b.address" /><br>
 		电话：<s:property value="b.phone" /><br>
 		状态：<s:property value="state" /><br>
-          <div class="aa"><a href="businessfind.jsp">返回</a></div>
       </div>
       </main>
       <!-- partial:partials/_footer.html -->

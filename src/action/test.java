@@ -94,8 +94,8 @@ public class test extends ActionSupport {
 	/*
 	 * public void validate() { String id = loginUser.getId(); String pwd =
 	 * loginUser.getPwd(); if (id == null || id.equals("")) {
-	 * this.addFieldError("loginUser.id", "ÇëÊäÈëÄúµÄÓÃ»§Ãû£¡"); } if (pwd == null ||
-	 * pwd.equals("")) { this.addFieldError("loginUser.pwd", "ÇëÊäÈëÄúµÄÃÜÂë"); } }
+	 * this.addFieldError("loginUser.id", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½"); } if (pwd == null ||
+	 * pwd.equals("")) { this.addFieldError("loginUser.pwd", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"); } }
 	 */
 	public String login() {
 		managerService userServ = new managerService();
@@ -140,12 +140,25 @@ public class test extends ActionSupport {
 	public void setItems(List items) {
 		this.items = items;
 	}
+	/*
+	 * 
+	 * å®¡æ ¸å•†å®¶
+	 */
 	public String getAllItems() {
-		
 		businessService busServ = new businessService();
+		
 		if (!busServ.all().isEmpty()) {
 			cBusiness=busServ.all().get(0);
 			System.out.println(cBusiness.getId());
+		return "success";    
+		}
+		else return "fail";
+	}
+       public String checkrider() {
+		
+    	   riderService ridServ = new riderService();
+		if (!ridServ.all().isEmpty()) {
+			registerUser=ridServ.all().get(0);
 		return "success";    
 		}
 		else return "fail";
@@ -167,5 +180,20 @@ public class test extends ActionSupport {
 		System.out.println(columnName);
 		return "success";
 	}
+	public String riderpass()
+	{
+		riderService rs=new riderService();
+		registerUser=rs.all().get(0);
+		rs.pass(registerUser.getId());
+		return "success";
+	}
+	public String riderunpass()
+	{
+		riderService rs=new riderService();
+		registerUser=rs.all().get(0);
+		rs.unpass(registerUser.getId());
+		return "success";
+	}
+	
 
 }

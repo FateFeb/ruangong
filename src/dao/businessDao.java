@@ -31,7 +31,7 @@ public class businessDao {
 	    String password = "123456";
 	    Connection conn = null;
 	    try {
-	        Class.forName(driver); //classLoader,¼ÓÔØ¶ÔÓ¦Çý¶¯
+	        Class.forName(driver); //classLoader,ï¿½ï¿½ï¿½Ø¶ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½
 	        conn = (Connection) DriverManager.getConnection(url, username, password);
 	    } catch (ClassNotFoundException e) {
 	        e.printStackTrace();
