@@ -9,7 +9,7 @@
 			<result name="input">/managerlogin.jsp</result> 
 		</action>
 		  <action name="riderreg" class="action.test" method="riderreg">
-			<result name="success">/audit.jsp</result>
+			<result name="success">/loginSuccess.jsp</result>
 			<result name="fail">loginFail.jsp</result>
 		</action>
 		
@@ -31,7 +31,7 @@
 			<result name="fail">/nouserfind.jsp</result>
 		</action>
 		<action name="unpass" class="action.test" method="unpass">
-			<result name="success">/loginFail.jsp</result>
+			<result name="success">/unpass.jsp</result>
 			
 		</action>
 		<action name="businessfind" class="action.find" method="businessfind">
@@ -41,11 +41,11 @@
 		</action>
 		<action name="orderfind" class="action.find" method="orderfind">
 			<result name="success">/ofindSuccess.jsp</result>
-			<result name="fail">loginFail.jsp</result>
+			<result name="fail">unfind.jsp</result>
 		</action>
 		<action name="riderfind" class="action.find" method="riderfind">
 			<result name="success">/rfindSuccess.jsp</result>
-			<result name="fail">/loginFail.jsp</result>
+			<result name="fail">/nouserfind.jsp</result>
 			
 		</action>
 		<action name="checkrider" class="action.test" method="checkrider">
@@ -54,6 +54,74 @@
 		</action>
 		<action name="riderpass" class="action.test" method="riderpass">
 		    <result name="success">/check.jsp</result>
+		</action>
+		<action name="riderfindo" class="action.find" method="riderfindo">
+			<result name="success">/rfindOiderSuccess.jsp</result>
+			<result name="fail">/rfindOiderFail.jsp</result>
+			
+		</action>
+		<action name="riderfindo2" class="action.find" method="riderfindo2">
+			<result name="success1">/rfindOiderSuccess1.jsp</result>
+			<result name="success2">/rfindOiderSuccess2.jsp</result>
+			<result name="success3">/rfindOiderSuccess3.jsp</result>
+			<result name="fail">/rfindOiderFail.jsp</result>
+			
+		</action>
+		<action name="finishorder" class="action.test" method="finishorder">
+			<result name="success">/index_rider.jsp</result>
+			<result name="fail">/rfindOiderFail.jsp</result>
+			
+		</action>
+		<action name="qiangorder" class="action.test" method="qiangorder">
+			<result name="success">/index_rider.jsp</result>
+			<result name="fail">/rfindOiderFail.jsp</result>
+			
+		</action>
+		<action name="updaterider" class="action.test" method="updaterider">
+			<result name="success">/index_rider.jsp</result>
+			<result name="fail">/rfindOiderFail.jsp</result>
+			
+		</action>
+		<action name="updatestore" class="action.test" method="updatestore">
+			<result name="success">/index_store.jsp</result>
+			<result name="fail">/rfindOiderFail.jsp</result>
+			
+		</action>
+		<action name="sendorder" class="action.test" method="sendorder">
+			<result name="success">/index_store.jsp</result>
+			<result name="fail">/rfindOiderFail.jsp</result>
+			
+		</action>
+		<action name="storefindo" class="action.find" method="storefindo">
+			<result name="success1">/sfindorderSuccess1.jsp</result>
+			<result name="success2">/sfindorderSuccess2.jsp</result>
+			<result name="success3">/sfindorderSuccess3.jsp</result>
+			<result name="fail">/rfindOiderFail.jsp</result>
+			
+		</action>
+		<action name="toone" class="action.find" method="toone">
+		<result name="success">/onechange.jsp</result>
+		</action>
+		<action name="tothree" class="action.find" method="tothree">
+		<result name="success">/threechange.jsp</result>
+		</action>
+		<action name="toone2" class="action.find" method="toone2">
+		<result name="success">/changeSuccess.jsp</result>
+		<result name="fail">/wrong.jsp</result>
+		</action>
+		<action name="tothree2" class="action.find" method="tothree2">
+		<result name="success">/changeSuccess.jsp</result>
+		<result name="fail">/wrong.jsp</result>
+		</action>
+		<action name="login_store" class="action.test" method="login_store">
+			<result name="success">/index_store.jsp</result>
+			<result name="fail">loginFail.jsp</result>
+			<result name="input">/managerlogin.jsp</result> 
+		</action>
+		<action name="login_rider" class="action.test" method="login_rider">
+			<result name="success">/index_rider.jsp</result>
+			<result name="fail">loginFail.jsp</result>
+			<result name="input">/managerlogin.jsp</result> 
 		</action>
 	</package>
 </struts>

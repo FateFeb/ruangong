@@ -6,11 +6,30 @@ import po.rider;
 import service.businessService;
 import service.orderService;
 import service.riderService;
+import java.util.ArrayList;
+import java.util.Map;
+
+import com.opensymphony.xwork2.ActionContext;
+
+import dao.businessDao;
+import dao.riderDao;
 
 public class find {
 	private String state;
+	private Map session;
+	public find() {
+		session=ActionContext.getContext().getSession();
+	}
 	public String getState() {
 		return state;
+	}
+ArrayList<order> ol=new ArrayList();
+	
+	public ArrayList<order> getOl() {
+		return ol;
+	}
+	public void setOl(ArrayList<order> ol) {
+		this.ol = ol;
 	}
 	public void setState(String state) {
 		this.state = state;
@@ -60,28 +79,79 @@ public class find {
 		return "success";
 		
 	}
+	public String riderfindo2()
+	{
+		orderService t=new orderService();
+		if(columnName.equals("æŸ¥è¯¢å¯æŠ¢è®¢å•"))  
+		{
+		 rider r=new rider();
+		 r=(rider)session.get("rider_ylm");
+		 System.out.println(r.getId());
+		 ol=t.rfindorderlist();
+		 return "success1";
+		}
+		else if(columnName.equals("æŸ¥è¯¢å·²æŠ¢æœªå®Œæˆè®¢å•")){
+			rider r=new rider();
+			 r=(rider)session.get("rider_ylm");
+			 System.out.println(r.getId());
+		  ol=t.rfindorder2list(r);
+			 return "success2";
+		}
+		else {
+			rider r=new rider();
+			 r=(rider)session.get("rider_ylm");
+			 System.out.println(r.getId());
+		  ol=t.rfindorder3list(r);
+			 return "success3";
+		}
+	}
+	public String storefindo()
+	{
+		orderService t=new orderService();
+		if(columnName.equals("æŸ¥è¯¢æœªæ¥è®¢å•"))  
+		{
+		 business r=new business();
+		 r=(business)session.get("business_ylm");
+		 System.out.println(r.getId());
+		 ol=t.sfindorderlist(r);
+		 return "success1";
+		}
+		else if(columnName.equals("æŸ¥è¯¢å·²æ¥æœªå®Œæˆè®¢å•")){
+			business r=new business();
+			 r=(business)session.get("business_ylm");
+			 System.out.println(r.getId());
+		  ol=t.sfindorder2list(r);
+			 return "success2";
+		}
+		else {
+			business r=new business();
+			 r=(business)session.get("business_ylm");
+			 System.out.println(r.getId());
+		  ol=t.sfindorder3list(r);
+			 return "success3";
+		}
+	}
 	public String businessfind()
 	{   
 		businessService t=new businessService();
-		if(columnName.equals("ÕËºÅ"))  
+		if(columnName.equals("è´¦å·"))  
 		{
 			b=t.findbyId(text);
 			if(b==null) return "fail";
 			System.out.println(b.getAddress());
-			if(b.getState()==1)state="Õı³£Ê¹ÓÃ";
-			if(b.getState()==2)state="Ç··Ñ";
-			if(b.getState()==3)state="¶³½á";
+			if(b.getState()==1)state="æ­£å¸¸";
+			if(b.getState()==2)state="å¾…å®¡æ ¸";
+			if(b.getState()==3)state="å†»ç»“";
 			return "success";
 		}
-		else if(columnName.equals("Ãû³Æ"))  
+		else if(columnName.equals("åç§°"))  
 		{   
-			System.out.println("Ãû³Æ");
 			b=t.findbyName(text);   
 			if(b==null) return "fail";
 			System.out.println(b.getAddress());
-			if(b.getState()==1)state="Õı³£Ê¹ÓÃ";
-			if(b.getState()==2)state="Ç··Ñ";
-			if(b.getState()==3)state="¶³½á";
+			if(b.getState()==1)state="æ­£å¸¸";
+			if(b.getState()==2)state="å¾…å®¡æ ¸";
+			if(b.getState()==3)state="å†»ç»“";
 			return "success";
 		}
 		else
@@ -89,37 +159,74 @@ public class find {
 			b=t.findbyPhone(text);
 			if(b==null) return "fail";
 			System.out.println(b.getAddress());
-			if(b.getState()==1)state="Õı³£Ê¹ÓÃ";
-			if(b.getState()==2)state="Ç··Ñ";
-			if(b.getState()==3)state="¶³½á";
+			if(b.getState()==1)state="æ­£å¸¸";
+			if(b.getState()==2)state="å¾…å®¡æ ¸";
+			if(b.getState()==3)state="å†»ç»“";
 			return "success";
 		}
 	}
 	public String riderfind()
 	{   
 		riderService t=new riderService();
-		if(columnName.equals("ÕËºÅ"))  
+		if(columnName.equals("è´¦å·"))  
 		{
 			r=t.findbyId(text);
 			if(r==null) return "fail";
-			
+			if(r.getState()==1)state="æ­£å¸¸";
+			if(r.getState()==2)state="å¾…å®¡æ ¸";
+			if(r.getState()==3)state="å†»ç»“";
 			return "success";
 		}
-		if(columnName.equals("Ãû³Æ"))  
-		{
-			r=t.findbyName(text);
-			if(r==null) return "fail";
-		
-			return "success";
-		}
-		if(columnName.equals("µç»°"))  
+		if(columnName.equals("ç”µè¯"))  
 		{
 			r=t.findbyPhone(text);
 			if(r==null) return "fail";
-
+			if(r.getState()==1)state="æ­£å¸¸";
+			if(r.getState()==2)state="å¾…å®¡æ ¸";
+			if(r.getState()==3)state="å†»ç»“";
 			return "success";
 		}
 		return "success";
+	}
+	public String toone()
+	{return "success";}
+	public String tothree()
+	{return "success";}
+	public String toone2()
+	{
+		if(columnName.equals("å•†å®¶"))  
+		{
+			businessDao t=new businessDao();
+			int o=t.update(text, 1);
+			System.out.println(o);
+			if(o!=0) return "success";
+		}
+		if(columnName.equals("éª‘æ‰‹"))  
+		{
+			riderDao t=new riderDao();
+			int o=t.update(text, 1);
+			System.out.println(o);
+			if(o!=0) return "success";
+		}
+		return "fail";
+	}
+	public String tothree2()
+	{
+		if(columnName.equals("å•†å®¶"))  
+		{
+			businessDao t=new businessDao();
+			int o=t.update(text, 3);
+			System.out.println(o);
+			if(o!=0) return "success";
+		}
+		if(columnName.equals("éª‘æ‰‹"))  
+		{
+			riderDao t=new riderDao();
+			int o=t.update(text, 3);
+			System.out.println(o);
+			if(o!=0) return "success";
+		}
+		return "fail";
 	}
 	
 }

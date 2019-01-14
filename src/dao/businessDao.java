@@ -26,7 +26,7 @@ public class businessDao {
 	private static final Log log = LogFactory.getLog(business.class);
 	private static Connection getConn() {
 		String driver = "com.mysql.jdbc.Driver";
-	    String url = "jdbc:mysql://localhost:3306/ylm";
+	    String url = "jdbc:mysql://localhost:3306/ylm?useSSL=false";
 	    String username = "root";
 	    String password = "123456";
 	    Connection conn = null;
@@ -45,7 +45,7 @@ public class businessDao {
 	
 	    Connection conn = getConn();
 	    int i = 0;
-	    String sql = "insert into business (id,pwd,name,phone,address,state) values(?,?,?,?,?,?)";
+	    String sql = "insert into business (id,pwd,name,phone,address,state,money) values(?,?,?,?,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -55,6 +55,7 @@ public class businessDao {
 	        pstmt.setString(4, businessreg.getPhone());
 	        pstmt.setString(5, businessreg.getAddress());
 	        pstmt.setInt(6, 2);
+	        pstmt.setInt(7, 0);
 	        i = pstmt.executeUpdate();
 	        pstmt.close();
 	        conn.close();
@@ -185,7 +186,7 @@ public class businessDao {
 	public business findByName(String name)
 	{   
 		 Connection conn = getConn();
-		String sql="SELECT * FROM business where name="+name;
+		String sql="SELECT * FROM business where name= "+name+" ";
 		 PreparedStatement pstmt;
 		    try {
 		        pstmt = (PreparedStatement)conn.prepareStatement(sql);
@@ -197,6 +198,7 @@ public class businessDao {
 		           b.setAddress(rst.getString("address"));
 		           b.setPhone(rst.getString("phone"));
 		           b.setState(rst.getInt("state"));
+		           b.setMoney(rst.getDouble("money"));
 		           return b;
 		             
 		        }
@@ -221,6 +223,7 @@ public class businessDao {
 		           b.setAddress(rst.getString("address"));
 		           b.setPhone(rst.getString("phone"));
 		           b.setState(rst.getInt("state"));
+		           b.setMoney(rst.getDouble("money"));
 		           return b;
 		             
 		        }
@@ -229,5 +232,37 @@ public class businessDao {
 		        e.printStackTrace();
 		    }
 		    return null;
+	}
+	public List findByHql(String hql) {
+		log.debug("finding CheckUser instance by hql");
+		SessionFactory sf = null;
+		sf = new Configuration().configure().buildSessionFactory();
+		Session session = sf.openSession();
+		try {
+			String queryString = hql;
+			Query queryObject = session.createQuery(queryString);
+			return queryObject.list();
+		} catch (RuntimeException re) {
+			log.error("find by hql failed", re);
+			throw re;
+		} finally {
+			session.close();
+		}
+	}
+	public boolean updatestore(business r) {
+	    Connection conn = getConn();
+	    int i = 0;
+	    String sql = "update business Set name='"+r.getName()+"', pwd='"+r.getPwd()+"',phone='"+r.getPhone()+"',address='"+r.getAddress()+"'WHERE id='"+r.getId()+"'";
+	    PreparedStatement pstmt;
+	    try {
+	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
+	        pstmt.executeUpdate();
+	        pstmt.close();
+	        conn.close();
+	        return true;
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        return false;
+	    }
 	}
 }

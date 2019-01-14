@@ -104,13 +104,13 @@
               </a>
             </div>
             <div class="mdc-list-item mdc-drawer-item">
-              <a class="mdc-drawer-link" href="#">
+              <a class="mdc-drawer-link" href="change_select.jsp">
                 <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">pie_chart_outlined</i>
                 用户处理
               </a>
             </div>
             <div class="mdc-list-item mdc-drawer-item" href="#" data-toggle="expansionPanel" target-panel="sample-page-submenu">
-              <a class="mdc-drawer-link" href="#">
+              <a class="mdc-drawer-link" href="index.jsp">
                 <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">pages</i>
                其它功能
                 <i class="mdc-drawer-arrow material-icons">arrow_drop_down</i>
@@ -233,8 +233,7 @@
 	            账号：<s:property value="r.id" /><br>
 		  名称：<s:property value="r.name" /><br>
 		  电话：<s:property value="r.phone" /><br>
-		  状态：<s:property value="r.state" /><br>
-		  <div class="aa"><a href="riderfind.jsp">返回</a></div>
+		  状态：<s:property value="state" /><br>
       </div>
       </main>
       <!-- partial:partials/_footer.html -->

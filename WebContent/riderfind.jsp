@@ -96,13 +96,13 @@
               </a>
             </div>
             <div class="mdc-list-item mdc-drawer-item">
-              <a class="mdc-drawer-link" href="#">
+              <a class="mdc-drawer-link" href="change_select.jsp">
                 <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">pie_chart_outlined</i>
                 用户处理
               </a>
             </div>
             <div class="mdc-list-item mdc-drawer-item" href="#" data-toggle="expansionPanel" target-panel="sample-page-submenu">
-              <a class="mdc-drawer-link" href="#">
+              <a class="mdc-drawer-link" href="index.jsp">
                 <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">pages</i>
                其它功能
                 <i class="mdc-drawer-arrow material-icons">arrow_drop_down</i>
@@ -222,7 +222,7 @@
       <main class="content-wrapper">
       <div class="posi">
         <s:form action="riderfind" method="post" class="form1">
-		<s:select name="columnName" class="input1" list="{'账号','名称','电话'}" headerKey="-1" headerValue="--请选择--" emptyOption="false" multiple="false"/>
+		<s:select name="columnName" class="input1" list="{'账号','电话'}" headerKey="-1" headerValue="--请选择--" emptyOption="false" multiple="false"/>
 		<s:textfield name="text" class="input2" placeholder="--请输入查询内容--"/>
 		<s:submit value="查询" class="input3"/>
 		</s:form>

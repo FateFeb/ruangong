@@ -74,7 +74,7 @@
                 用户查询
                 <i class="mdc-drawer-arrow material-icons">arrow_drop_down</i>
               </a>
-              <div class="mdc-expansion-panel" id="ui-sub-menu">
+              
                 <nav class="mdc-list mdc-drawer-submenu">
                   <div class="mdc-list-item mdc-drawer-item">
                     <a class="mdc-drawer-link" href="pages/ui-features/buttons.html">
@@ -96,13 +96,13 @@
               </a>
             </div>
             <div class="mdc-list-item mdc-drawer-item">
-              <a class="mdc-drawer-link" href="#">
+              <a class="mdc-drawer-link" href="index.jsp">
                 <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">pie_chart_outlined</i>
                 用户处理
               </a>
             </div>
             <div class="mdc-list-item mdc-drawer-item" href="#" data-toggle="expansionPanel" target-panel="sample-page-submenu">
-              <a class="mdc-drawer-link" href="#">
+              <a class="mdc-drawer-link" href="index.jsp">
                 <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">pages</i>
                其它功能
                 <i class="mdc-drawer-arrow material-icons">arrow_drop_down</i>

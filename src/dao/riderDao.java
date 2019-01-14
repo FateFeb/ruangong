@@ -25,7 +25,7 @@ public class riderDao {
 	private Log log = LogFactory.getLog(managerDao.class);
 	private static Connection getConn() {
 		String driver = "com.mysql.jdbc.Driver";
-	    String url = "jdbc:mysql://localhost:3306/ylm";
+	    String url = "jdbc:mysql://localhost:3306/ylm?useSSL=false";
 	    String username = "root";
 	    String password = "123456";
 	    Connection conn = null;
@@ -39,12 +39,28 @@ public class riderDao {
 	    }
 	    return conn;
 	}
+	public static int update(String id,int state) {
+	    Connection conn = getConn();
+	    int i = 0;
+	    String sql = "update rider set state='" + state + "' where id='" + id + "'";
+	    PreparedStatement pstmt;
+	    try {
+	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
+	        i = pstmt.executeUpdate();
+	        System.out.println("resutl: " + i);
+	        pstmt.close();
+	        conn.close();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    return i;
+	}
 	public static int insert(rider riderreg) {
 		 
 	
 	    Connection conn = getConn();
 	    int i = 0;
-	    String sql = "insert into rider (id,pwd,name,phone,state) values(?,?,?,?,?)";
+	    String sql = "insert into rider (id,pwd,name,phone,state,money) values(?,?,?,?,?,?)";
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -53,6 +69,7 @@ public class riderDao {
 	        pstmt.setString(3, riderreg.getName());
 	        pstmt.setString(4, riderreg.getPhone());
 	        pstmt.setInt(5, 2);
+	        pstmt.setInt(6, 0);
 	        i = pstmt.executeUpdate();
 	        pstmt.close();
 	        conn.close();
@@ -211,5 +228,20 @@ public class riderDao {
 		        e.printStackTrace();
 		    }
 	}
-	
+	public boolean updaterider(rider r) {
+	    Connection conn = getConn();
+	    int i = 0;
+	    String sql = "update rider Set name='"+r.getName()+"', pwd='"+r.getPwd()+"',phone='"+r.getPhone()+"'WHERE id='"+r.getId()+"'";
+	    PreparedStatement pstmt;
+	    try {
+	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
+	        pstmt.executeUpdate();
+	        pstmt.close();
+	        conn.close();
+	        return true;
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        return false;
+	    }
+	}
 }
